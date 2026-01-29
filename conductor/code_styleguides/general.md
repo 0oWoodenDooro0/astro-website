@@ -1,15 +1,23 @@
-# Code Style Guide
+# General Code Style Principles
 
-## General Principles
-- **Consistency:** Follow standard community conventions for each language.
-- **Readability:** Code should be self-documenting where possible.
-- **Simplicity:** Prefer simple solutions over complex ones.
+This document outlines general coding principles that apply across all languages and frameworks used in this project.
 
-## JavaScript / TypeScript
-- **Linter:** ESLint with recommended settings.
-- **Formatter:** Prettier.
-- **Naming:** CamelCase for variables/functions, PascalCase for classes/components.
+## Readability
+- Code should be easy to read and understand by humans.
+- Avoid overly clever or obscure constructs.
 
-## CSS / Tailwind
-- **Ordering:** Use `prettier-plugin-tailwindcss` to enforce class order.
-- **Structure:** Mobile-first media queries.
+## Consistency
+- Follow existing patterns in the codebase.
+- Maintain consistent formatting, naming, and structure.
+
+## Simplicity
+- Prefer simple solutions over complex ones.
+- Break down complex problems into smaller, manageable parts.
+
+## Maintainability
+- Write code that is easy to modify and extend.
+- Minimize dependencies and coupling.
+
+## Documentation
+- Document *why* something is done, not just *what*.
+- Keep documentation up-to-date with code changes.
