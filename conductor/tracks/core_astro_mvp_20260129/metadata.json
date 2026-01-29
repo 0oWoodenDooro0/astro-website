@@ -1,0 +1,8 @@
+{
+"track_id": "core_astro_mvp_20260129",
+"type": "feature",
+"status": "new",
+"created_at": "2026-01-29T00:00:00Z",
+"updated_at": "2026-01-29T00:00:00Z",
+"description": "Build the core Astro structure with specific routes for Home, Blog, Projects, and Config, including the Catppuccin-themed UI."
+}
