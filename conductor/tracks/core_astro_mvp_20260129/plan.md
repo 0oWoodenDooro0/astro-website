@@ -1,7 +1,7 @@
 # Track Plan: Core Astro MVP
 
 ## Phase 1: Project Scaffolding & Configuration
-- [ ] Task: Initialize Astro project with `pnpm create astro@latest`.
+- [x] Task: Initialize Astro project with `pnpm create astro@latest`. [ffa2e34]
 - [ ] Task: Install Tailwind CSS integration (`pnpm astro add tailwind`).
 - [ ] Task: Install and configure `tailwind-catppuccin` plugin and `@fontsource/jetbrains-mono`.
 - [ ] Task: Update `tailwind.config.mjs` to set the default font family and color palette (Mocha).
