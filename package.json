@@ -14,5 +14,9 @@
     "astro": "^5.17.1",
     "tailwindcss": "^4.1.18",
     "typescript": "^5.9.3"
+  },
+  "devDependencies": {
+    "@catppuccin/tailwindcss": "^1.0.0",
+    "@fontsource/jetbrains-mono": "^5.2.8"
   }
 }
