@@ -9,7 +9,7 @@
 - [x] Task: Conductor - User Manual Verification 'Phase 1: Project Scaffolding & Configuration' (Protocol in workflow.md)
 
 ## Phase 2: Content Collections & Routing
-- [ ] Task: Define Content Collection schema for `blog` in `src/content/config.ts`.
+- [x] Task: Define Content Collection schema for `blog` in `src/content/config.ts`. [450b062]
 - [ ] Task: Define Content Collection schema for `projects` in `src/content/config.ts`.
 - [ ] Task: Define Content Collection schema for `config` (dotfiles) in `src/content/config.ts`.
 - [ ] Task: Create the file structure for routes: `pages/index.astro`, `pages/about.astro`.
