@@ -3,7 +3,7 @@
 ## Phase 1: Project Scaffolding & Configuration
 - [x] Task: Initialize Astro project with `pnpm create astro@latest`. [ffa2e34]
 - [x] Task: Install Tailwind CSS integration (`pnpm astro add tailwind`). [d357430]
-- [ ] Task: Install and configure `tailwind-catppuccin` plugin and `@fontsource/jetbrains-mono`.
+- [x] Task: Install and configure `tailwind-catppuccin` plugin and `@fontsource/jetbrains-mono`. [5b9359d]
 - [ ] Task: Update `tailwind.config.mjs` to set the default font family and color palette (Mocha).
 - [ ] Task: Create a base `Layout.astro` component with the HTML shell and common `<head>` elements.
 - [ ] Task: Conductor - User Manual Verification 'Phase 1: Project Scaffolding & Configuration' (Protocol in workflow.md)
