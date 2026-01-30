@@ -1,3 +1,9 @@
 @import "tailwindcss";
-@config "../../tailwind.config.mjs";
+@import "@catppuccin/tailwindcss/mocha.css";
+
+@theme {
+  --font-mono: "JetBrains Mono", monospace;
+  --font-sans: "JetBrains Mono", monospace;
+}
+
 
