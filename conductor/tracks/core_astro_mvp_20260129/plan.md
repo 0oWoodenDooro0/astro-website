@@ -1,12 +1,12 @@
 # Track Plan: Core Astro MVP
 
-## Phase 1: Project Scaffolding & Configuration
+## Phase 1: Project Scaffolding & Configuration [checkpoint: 22a6efa]
 - [x] Task: Initialize Astro project with `pnpm create astro@latest`. [ffa2e34]
 - [x] Task: Install Tailwind CSS integration (`pnpm astro add tailwind`). [d357430]
 - [x] Task: Install and configure `tailwind-catppuccin` plugin and `@fontsource/jetbrains-mono`. [5b9359d]
 - [x] Task: Update `tailwind.config.mjs` to set the default font family and color palette (Mocha). [9e4794a]
 - [x] Task: Create a base `Layout.astro` component with the HTML shell and common `<head>` elements. [8c66cbb]
-- [ ] Task: Conductor - User Manual Verification 'Phase 1: Project Scaffolding & Configuration' (Protocol in workflow.md)
+- [x] Task: Conductor - User Manual Verification 'Phase 1: Project Scaffolding & Configuration' (Protocol in workflow.md)
 
 ## Phase 2: Content Collections & Routing
 - [ ] Task: Define Content Collection schema for `blog` in `src/content/config.ts`.
