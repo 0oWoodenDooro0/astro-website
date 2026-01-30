@@ -10,7 +10,7 @@
 
 ## Phase 2: Content Collections & Routing
 - [x] Task: Define Content Collection schema for `blog` in `src/content/config.ts`. [450b062]
-- [ ] Task: Define Content Collection schema for `projects` in `src/content/config.ts`.
+- [x] Task: Define Content Collection schema for `projects` in `src/content/config.ts`. [4749729]
 - [ ] Task: Define Content Collection schema for `config` (dotfiles) in `src/content/config.ts`.
 - [ ] Task: Create the file structure for routes: `pages/index.astro`, `pages/about.astro`.
 - [ ] Task: Create dynamic routes for Blog: `pages/blog/index.astro` and `pages/blog/[...slug].astro`.
