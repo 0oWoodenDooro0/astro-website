@@ -39,9 +39,9 @@
 @utility prose-ctp-mocha {
   @apply prose prose-invert;
   --tw-prose-body: var(--color-ctp-text);
-  --tw-prose-headings: var(--color-ctp-lavender);
+  --tw-prose-headings: var(--color-ctp-pink);
   --tw-prose-lead: var(--color-ctp-subtext0);
-  --tw-prose-links: var(--color-ctp-blue);
+  --tw-prose-links: var(--color-ctp-pink);
   --tw-prose-bold: var(--color-ctp-text);
   --tw-prose-counters: var(--color-ctp-overlay2);
   --tw-prose-bullets: var(--color-ctp-overlay2);
