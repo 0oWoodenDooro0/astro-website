@@ -24,6 +24,6 @@
 - [x] Task: Implement the Landing Page (`index.astro`) with a hero section. [bd49e4a]
 - [x] Task: Implement the Blog Index page (list view with cards). [913d86b]
 - [x] Task: Implement the Blog Post view (Markdown rendering). [ebb6394]
-- [ ] Task: Implement the Projects Index page (Grid view with thumbnails).
+- [x] Task: Implement the Projects Index page (Grid view with thumbnails). [e6a15d0]
 - [ ] Task: Implement the Config file viewer (Code block styling with Shiki/Astro default).
 - [ ] Task: Conductor - User Manual Verification 'Phase 3: UI Implementation & Theming' (Protocol in workflow.md)
