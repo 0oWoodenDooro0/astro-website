@@ -8,7 +8,7 @@
 - [x] Task: Create a base `Layout.astro` component with the HTML shell and common `<head>` elements. [8c66cbb]
 - [x] Task: Conductor - User Manual Verification 'Phase 1: Project Scaffolding & Configuration' (Protocol in workflow.md)
 
-## Phase 2: Content Collections & Routing
+## Phase 2: Content Collections & Routing [checkpoint: b30cb1e]
 - [x] Task: Define Content Collection schema for `blog` in `src/content/config.ts`. [450b062]
 - [x] Task: Define Content Collection schema for `projects` in `src/content/config.ts`. [4749729]
 - [x] Task: Define Content Collection schema for `config` (dotfiles) in `src/content/config.ts`. [e984c2e]
@@ -16,7 +16,7 @@
 - [x] Task: Create dynamic routes for Blog: `pages/blog/index.astro` and `pages/blog/[...slug].astro`. [52bf41f]
 - [x] Task: Create dynamic routes for Projects: `pages/projects/index.astro`. [10bde19]
 - [x] Task: Create dynamic routes for Configs: `pages/config/index.astro` and `pages/config/[...slug].astro`. [919d816]
-- [ ] Task: Conductor - User Manual Verification 'Phase 2: Content Collections & Routing' (Protocol in workflow.md)
+- [x] Task: Conductor - User Manual Verification 'Phase 2: Content Collections & Routing' (Protocol in workflow.md) [b30cb1e]
 
 ## Phase 3: UI Implementation & Theming
 - [ ] Task: Implement the global Navigation Bar component with links to all major sections.
