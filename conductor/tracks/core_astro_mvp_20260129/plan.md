@@ -25,5 +25,5 @@
 - [x] Task: Implement the Blog Index page (list view with cards). [913d86b]
 - [x] Task: Implement the Blog Post view (Markdown rendering). [ebb6394]
 - [x] Task: Implement the Projects Index page (Grid view with thumbnails). [e6a15d0]
-- [ ] Task: Implement the Config file viewer (Code block styling with Shiki/Astro default).
+- [x] Task: Implement the Config file viewer (Code block styling with Shiki/Astro default). [76d5e1f]
 - [ ] Task: Conductor - User Manual Verification 'Phase 3: UI Implementation & Theming' (Protocol in workflow.md)
