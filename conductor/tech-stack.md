@@ -21,3 +21,8 @@
 ## Package Management
 - **Tool:** **pnpm**
   - **Rationale:** Efficient, fast, and saves disk space. Highly recommended for the modern web ecosystem.
+
+## Runtime Environment
+- **Containerization:** **Docker**
+  - **Image:** `node:25`
+  - **Rationale:** Ensures a consistent development environment across different machines and prevents "works on my machine" issues.
