@@ -22,7 +22,7 @@
 - [x] Task: Implement the global Navigation Bar component with links to all major sections. [9b7e48c]
 - [x] Task: Style the Layout.astro to use the Catppuccin background (Base/Mantle) and text colors. [1aa7e5c]
 - [x] Task: Implement the Landing Page (`index.astro`) with a hero section. [bd49e4a]
-- [ ] Task: Implement the Blog Index page (list view with cards).
+- [x] Task: Implement the Blog Index page (list view with cards). [913d86b]
 - [ ] Task: Implement the Blog Post view (Markdown rendering).
 - [ ] Task: Implement the Projects Index page (Grid view with thumbnails).
 - [ ] Task: Implement the Config file viewer (Code block styling with Shiki/Astro default).
