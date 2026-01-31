@@ -1,6 +1,7 @@
 ---
 import '../styles/global.css';
 import '@fontsource/jetbrains-mono';
+import Navigation from '../components/Navigation.astro';
 
 interface Props {
 	title: string;
@@ -19,7 +20,13 @@ const { title } = Astro.props;
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
 	</head>
-	<body class="bg-ctp-mantle text-ctp-text font-mono antialiased">
-		<slot />
+	<body class="bg-ctp-base text-ctp-text font-mono antialiased min-h-screen flex flex-col">
+		<Navigation />
+		<div class="flex-grow">
+			<slot />
+		</div>
+		<footer class="py-8 text-center text-ctp-surface2 text-sm border-t border-ctp-surface0 mt-auto">
+			<p>&copy; {new Date().getFullYear()} shaggy-star. Built with Astro & Catppuccin.</p>
+		</footer>
 	</body>
 </html>
