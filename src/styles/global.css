@@ -1,9 +1,59 @@
 @import "tailwindcss";
 @import "@catppuccin/tailwindcss/mocha.css";
 
+@plugin "@tailwindcss/typography";
+
 @theme {
   --font-mono: "JetBrains Mono", monospace;
   --font-sans: "JetBrains Mono", monospace;
+
+  /* Catppuccin Mocha variables (overriding if needed, but the plugin should provide them) */
+  --color-ctp-base: #1e1e2e;
+  --color-ctp-mantle: #181825;
+  --color-ctp-crust: #11111b;
+  --color-ctp-text: #cdd6f4;
+  --color-ctp-subtext0: #a6adc8;
+  --color-ctp-subtext1: #bac2de;
+  --color-ctp-surface0: #313244;
+  --color-ctp-surface1: #45475a;
+  --color-ctp-surface2: #585b70;
+  --color-ctp-overlay0: #6c7086;
+  --color-ctp-overlay1: #7f849c;
+  --color-ctp-overlay2: #9399b2;
+  --color-ctp-blue: #89b4fa;
+  --color-ctp-lavender: #b4befe;
+  --color-ctp-sapphire: #74c7ec;
+  --color-ctp-sky: #89dceb;
+  --color-ctp-teal: #94e2d5;
+  --color-ctp-green: #a6e3a1;
+  --color-ctp-yellow: #f9e2af;
+  --color-ctp-peach: #fab387;
+  --color-ctp-maroon: #eba0ac;
+  --color-ctp-red: #f38ba8;
+  --color-ctp-mauve: #cba6f7;
+  --color-ctp-pink: #f5c2e7;
+  --color-ctp-flamingo: #f2cdcd;
+  --color-ctp-rosewater: #f5e0dc;
+}
+
+@utility prose-ctp-mocha {
+  @apply prose prose-invert;
+  --tw-prose-body: var(--color-ctp-text);
+  --tw-prose-headings: var(--color-ctp-lavender);
+  --tw-prose-lead: var(--color-ctp-subtext0);
+  --tw-prose-links: var(--color-ctp-blue);
+  --tw-prose-bold: var(--color-ctp-text);
+  --tw-prose-counters: var(--color-ctp-overlay2);
+  --tw-prose-bullets: var(--color-ctp-overlay2);
+  --tw-prose-hr: var(--color-ctp-surface0);
+  --tw-prose-quotes: var(--color-ctp-subtext1);
+  --tw-prose-quote-borders: var(--color-ctp-surface1);
+  --tw-prose-captions: var(--color-ctp-overlay1);
+  --tw-prose-code: var(--color-ctp-peach);
+  --tw-prose-pre-code: var(--color-ctp-text);
+  --tw-prose-pre-bg: var(--color-ctp-mantle);
+  --tw-prose-th-borders: var(--color-ctp-surface1);
+  --tw-prose-td-borders: var(--color-ctp-surface0);
 }
 
 
