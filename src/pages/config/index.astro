@@ -1,0 +1,26 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+
+const configs = await getCollection('config');
+---
+
+<Layout title="Dotfiles / Configs">
+	<main class="container mx-auto px-4 py-8">
+		<h1 class="text-4xl font-bold text-ctp-lavender mb-8">Configurations</h1>
+		<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+			{
+				configs.map((config) => (
+					<a
+						href={`/config/${config.id}/`}
+						class="border border-ctp-surface0 rounded p-4 bg-ctp-mantle hover:border-ctp-blue transition-colors flex flex-col"
+					>
+						<span class="text-xl font-mono text-ctp-blue mb-2">{config.data.filename}</span>
+						<span class="text-ctp-subtext1 text-sm">{config.data.description || 'System configuration file'}</span>
+						<span class="mt-auto pt-4 text-xs text-ctp-surface2 font-mono uppercase">{config.data.language}</span>
+					</a>
+				))
+			}
+		</div>
+	</main>
+</Layout>

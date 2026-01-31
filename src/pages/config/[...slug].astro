@@ -1,0 +1,42 @@
+---
+import { type CollectionEntry, getCollection, render } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+
+export async function getStaticPaths() {
+	const configs = await getCollection('config');
+	return configs.map((config) => ({
+		params: { slug: config.id },
+		props: config,
+	}));
+}
+type Props = CollectionEntry<'config'>;
+
+const config = Astro.props;
+const { Content } = await render(config);
+---
+
+<Layout title={config.data.filename}>
+	<main class="container mx-auto px-4 py-8">
+		<header class="mb-8">
+			<h1 class="text-4xl font-mono font-bold text-ctp-lavender mb-2">{config.data.filename}</h1>
+			<p class="text-ctp-subtext1">{config.data.description || 'System configuration file'}</p>
+		</header>
+		<div class="border border-ctp-surface0 rounded-lg overflow-hidden bg-ctp-crust">
+			<div class="bg-ctp-mantle px-4 py-2 border-b border-ctp-surface0 flex justify-between items-center">
+				<span class="text-xs font-mono text-ctp-subtext0 uppercase">{config.data.language}</span>
+			</div>
+			<div class="p-4 overflow-x-auto text-sm font-mono">
+				<Content />
+			</div>
+		</div>
+	</main>
+</Layout>
+
+<style is:global>
+	/* Basic styling for the rendered Markdown/Code */
+	.prose pre {
+		background-color: transparent !important;
+		margin: 0 !important;
+		padding: 0 !important;
+	}
+</style>
