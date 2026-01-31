@@ -12,6 +12,6 @@
 - [ ] Task: Conductor - User Manual Verification 'Phase 1: Implementation & Styling' (Protocol in workflow.md)
 
 ## Phase 2: Validation & Build
-- [ ] Task: Run project verification tools to ensure no syntax or type errors.
-- [ ] Task: Run production build to ensure static site generation is successful.
+- [x] Task: Run project verification tools to ensure no syntax or type errors.
+- [x] Task: Run production build to ensure static site generation is successful.
 - [ ] Task: Conductor - User Manual Verification 'Phase 2: Validation & Build' (Protocol in workflow.md)
