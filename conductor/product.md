@@ -15,16 +15,16 @@ A comprehensive personal website serving as a professional portfolio, a technica
 ## Core Features
 1.  **Configuration / Dotfiles Archive:**
     -   A dedicated section for hosting and displaying computer configuration files (config/dotfiles).
-    -   Should support syntax highlighting for readability.
+    -   Supports syntax highlighting and a "terminal-window" visual style.
 
 2.  **Project Portfolio:**
     -   **Visual Layout:** Grid view with thumbnails and brief descriptions for easy browsing.
-    -   **Integration:** Direct links to GitHub repositories for code access.
+    -   **Integration:** Cards feature GitHub links, tech stack tags, and custom icons.
     -   **Purpose:** To systematically organize and showcase past work.
 
 3.  **Blog & Journal:**
     -   **Content:** A mix of technical articles and personal life updates.
-    -   **Format:** Support for Markdown writing.
+    -   **Format:** Full Markdown rendering with themed typography (prose).
     -   **Organization:** Categorization to separate technical logs from personal diaries.
 
 ## Strategic Goals

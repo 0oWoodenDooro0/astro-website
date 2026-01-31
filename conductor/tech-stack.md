@@ -8,6 +8,10 @@
 - **Engine:** **Tailwind CSS**
 - **Theme Plugin:** **Tailwind-Catppuccin**
   - **Rationale:** Tailwind allows for rapid UI development, and the Catppuccin plugin ensures the site strictly adheres to the selected color palette.
+- **Typography:** **@tailwindcss/typography**
+  - **Rationale:** Provides consistent and beautiful styling for Markdown content (prose).
+- **Font:** **JetBrains Mono**
+  - **Rationale:** Reinforces the "Developer/Hacker" aesthetic with a high-quality monospaced font.
 
 ## Content Management
 - **Source:** **Markdown / MDX**
