@@ -2,9 +2,40 @@
 import Layout from '../layouts/Layout.astro';
 ---
 
-<Layout title="Welcome to Astro.">
-	<main>
-		<h1 class="text-4xl font-bold text-ctp-lavender">Welcome to Astro</h1>
+<Layout title="shaggy-star | Developer Portfolio">
+	<main class="container mx-auto px-4 py-20 flex flex-col items-center text-center">
+		<div class="mb-8">
+			<span class="text-ctp-mauve font-mono text-lg mb-2 block">&gt; Hello, world.</span>
+			<h1 class="text-6xl font-bold text-ctp-lavender mb-4">I'm <span class="text-ctp-blue">shaggy-star</span></h1>
+			<p class="text-xl text-ctp-subtext0 max-w-2xl mx-auto">
+				Developer, Open Source Enthusiast, and Tech Blogger. 
+				I build things with modern tools and share my journey.
+			</p>
+		</div>
+
+		<div class="flex gap-4">
+			<a href="/projects" class="bg-ctp-blue text-ctp-base px-6 py-3 rounded-md font-bold hover:bg-ctp-sapphire transition-colors">
+				View Projects
+			</a>
+			<a href="/blog" class="border border-ctp-blue text-ctp-blue px-6 py-3 rounded-md font-bold hover:bg-ctp-blue hover:text-ctp-base transition-colors">
+				Read Blog
+			</a>
+		</div>
+
+		<div class="mt-20 grid grid-cols-1 md:grid-cols-3 gap-8 w-full max-w-4xl">
+			<div class="p-6 border border-ctp-surface0 rounded-lg bg-ctp-mantle">
+				<h3 class="text-ctp-yellow text-xl font-bold mb-2">Projects</h3>
+				<p class="text-ctp-subtext1">Showcasing my latest work and open source contributions.</p>
+			</div>
+			<div class="p-6 border border-ctp-surface0 rounded-lg bg-ctp-mantle">
+				<h3 class="text-ctp-green text-xl font-bold mb-2">Blog</h3>
+				<p class="text-ctp-subtext1">Insights, tutorials, and personal updates.</p>
+			</div>
+			<div class="p-6 border border-ctp-surface0 rounded-lg bg-ctp-mantle">
+				<h3 class="text-ctp-peach text-xl font-bold mb-2">Configs</h3>
+				<p class="text-ctp-subtext1">My personal setup and dotfiles for reference.</p>
+			</div>
+		</div>
 	</main>
 </Layout>
 
