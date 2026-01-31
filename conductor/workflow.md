@@ -138,19 +138,19 @@ Before marking any task complete, verify:
 ### Docker (Preferred)
 ```bash
 # Setup (Install dependencies)
-docker run --rm -v $(pwd):/app -w /app node:25 sh -c "corepack enable && pnpm install"
+docker run --rm -v $(pwd):/app -w /app node:25 sh -c "npm install -g pnpm && pnpm install"
 
 # Start dev server (Accessible at http://localhost:4321)
-docker run --rm -it -v $(pwd):/app -w /app -p 4321:4321 node:25 sh -c "corepack enable && pnpm install && pnpm run dev --host"
+docker run --rm -it -v $(pwd):/app -w /app -p 4321:4321 node:25 sh -c "npm install -g pnpm && pnpm install && pnpm run dev --host"
 
 # Run type checks
-docker run --rm -v $(pwd):/app -w /app node:25 sh -c "corepack enable && pnpm install && pnpm astro check"
+docker run --rm -v $(pwd):/app -w /app node:25 sh -c "npm install -g pnpm && pnpm install && pnpm astro check"
 
 # Build for production
-docker run --rm -v $(pwd):/app -w /app node:25 sh -c "corepack enable && pnpm install && pnpm run build"
+docker run --rm -v $(pwd):/app -w /app node:25 sh -c "npm install -g pnpm && pnpm install && pnpm run build"
 
 # Verify everything (Check & Build)
-docker run --rm -v $(pwd):/app -w /app node:25 sh -c "corepack enable && pnpm install && pnpm astro check && pnpm run build"
+docker run --rm -v $(pwd):/app -w /app node:25 sh -c "npm install -g pnpm && pnpm install && pnpm astro check && pnpm run build"
 ```
 
 ### Local (Alternative)
