@@ -15,7 +15,7 @@
 - [x] Task: Create the file structure for routes: `pages/index.astro`, `pages/about.astro`. [c96d2aa]
 - [x] Task: Create dynamic routes for Blog: `pages/blog/index.astro` and `pages/blog/[...slug].astro`. [52bf41f]
 - [x] Task: Create dynamic routes for Projects: `pages/projects/index.astro`. [10bde19]
-- [ ] Task: Create dynamic routes for Configs: `pages/config/index.astro` and `pages/config/[...slug].astro`.
+- [x] Task: Create dynamic routes for Configs: `pages/config/index.astro` and `pages/config/[...slug].astro`. [919d816]
 - [ ] Task: Conductor - User Manual Verification 'Phase 2: Content Collections & Routing' (Protocol in workflow.md)
 
 ## Phase 3: UI Implementation & Theming
