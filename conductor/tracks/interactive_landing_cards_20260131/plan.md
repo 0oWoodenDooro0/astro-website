@@ -1,6 +1,6 @@
 # Track Plan: Interactive Landing Page Cards
 
-## Phase 1: Implementation & Styling
+## Phase 1: Implementation & Styling [checkpoint: 113e271]
 - [x] Task: Modify `src/pages/index.astro` to wrap feature cards in anchor tags. fcb6868
     - [x] Wrap the "Projects" card in an `<a>` tag pointing to `/projects`.
     - [x] Wrap the "Blog" card in an `<a>` tag pointing to `/blog`.
