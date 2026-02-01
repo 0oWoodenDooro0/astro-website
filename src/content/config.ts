@@ -24,7 +24,7 @@ const projects = defineCollection({
 });
 
 const config = defineCollection({
-	loader: glob({ pattern: "**/*.md", base: "./src/content/config" }),
+	loader: glob({ pattern: "**/index.md", base: "./src/content/config" }),
 	schema: z.object({
 		title: z.string(),
 		description: z.string(),
