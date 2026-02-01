@@ -9,7 +9,7 @@
 - [ ] Task: Conductor - User Manual Verification 'Phase 1: Content Schema & Mock Data' (Protocol in workflow.md)
 
 ## Phase 2: Index Page Implementation
-- [ ] Task: Create `src/pages/config/index.astro`.
+- [x] Task: Create `src/pages/config/index.astro`. 1e23d87
     - [ ] Fetch all entries from the `config` collection.
     - [ ] Implement a grid/list layout using Catppuccin themed cards.
     - [ ] Display title, description, and tech tags.
