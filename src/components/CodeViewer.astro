@@ -12,7 +12,10 @@ const {
 } = Astro.props;
 ---
 
-<div class="code-viewer-container border border-ctp-surface0 rounded-xl overflow-hidden bg-ctp-crust shadow-2xl font-mono h-full flex flex-col">
+<div 
+  class="code-viewer-container border border-ctp-surface0 rounded-xl overflow-hidden bg-ctp-crust shadow-2xl font-mono h-full flex flex-col"
+  data-initial-code={initialCode}
+>
   <div class="bg-ctp-mantle px-4 py-3 border-b border-ctp-surface0 flex items-center justify-between flex-shrink-0">
     <div class="flex items-center gap-3">
       <div class="flex gap-1.5">
@@ -48,7 +51,8 @@ const {
 <script>
   import { $selectedFile } from '../lib/stores';
 
-  let currentCode = '';
+  const container = document.querySelector('.code-viewer-container');
+  let currentCode = container?.getAttribute('data-initial-code') || '';
 
   const copyButton = document.getElementById('copy-button');
   const filenameEl = document.getElementById('viewer-filename');
