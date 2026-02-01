@@ -29,12 +29,12 @@ This plan outlines the steps to migrate configuration data to a local structure 
 
 ## Phase 3: Mobile Responsiveness & UI/UX Polish
 
-- [ ] Task: Implement Master-Detail transition for Mobile.
+- [x] Task: Implement Master-Detail transition for Mobile. e06ec05
     - Add CSS/JS logic to hide the tree and show the viewer on mobile after a file selection.
     - Add a "Back to Files" button visible only in the mobile detail view.
-- [ ] Task: Visual refinement and "Hacker" aesthetic.
+- [x] Task: Visual refinement and "Hacker" aesthetic. e06ec05
     - Ensure all interactions use Catppuccin Mocha colors.
     - Add smooth transitions/animations for folder expansion and file switching.
-- [ ] Task: Cleanup unused code.
+- [x] Task: Cleanup unused code. 98ca8bb
     - Remove GitHub API integration from `src/pages/config/[...slug].astro` and `src/lib/github.ts` if no longer used by other features.
 - [ ] Task: Conductor - User Manual Verification 'Phase 3: Mobile Responsiveness & UI/UX Polish' (Protocol in workflow.md)
