@@ -25,15 +25,17 @@ All tasks follow a strict lifecycle:
 
 4. **Verify Syntax and Types (Validation Phase):**
    - **CRITICAL** Run the project's verification tools to check for syntax errors and type mismatches.
-   - Execute: `pnpm astro check`
+   - **Preferred (Docker):** `docker run --rm -v $(pwd):/app -w /app node:25 sh -c "npm install -g pnpm && pnpm install && pnpm astro check"`
+   - **Alternative (Local):** `pnpm astro check`
    - Ensure there are **zero** errors. Do not proceed until the check command returns a success code.
 
 5. **Refactor (Optional but Recommended):**
    - Refactor the code to improve clarity, remove duplication, and enhance performance.
-   - **CRITICAL** Rerun `pnpm astro check` after every refactor to ensure no regressions were introduced.
+   - **CRITICAL** Rerun verification after every refactor to ensure no regressions were introduced.
 
 6. **Verify Build:** Run a dry-run build to ensure the code is valid for production generation:
-   - Execute: `pnpm run build`.
+   - **Preferred (Docker):** `docker run --rm -v $(pwd):/app -w /app node:25 sh -c "npm install -g pnpm && pnpm install && pnpm run build"`
+   - **Alternative (Local):** `pnpm run build`.
    - If the build fails, fix the errors before proceeding.
 
 7. **Document Deviations:** If implementation differs from tech stack:
@@ -77,7 +79,7 @@ All tasks follow a strict lifecycle:
 
 3.  **Execute Automated Validation with Proactive Debugging:**
     -   Before execution, you must announce the exact shell command you will use to verify the phase.
-    -   **Example Announcement:** "I will now run the Astro type check and build process to verify the phase. Command: `pnpm astro check && pnpm run build`"
+    -   **Example Announcement:** "I will now run the Astro type check and build process using Docker to verify the phase. Command: `docker run --rm -v $(pwd):/app -w /app node:25 sh -c \"npm install -g pnpm && pnpm install && pnpm astro check && pnpm run build\"`"
     -   Execute the announced command.
     -   If the check or build fails, you **must** inform the user and begin debugging. You may attempt to propose a fix a **maximum of two times**. If it still fails, stop and ask the user for guidance.
 

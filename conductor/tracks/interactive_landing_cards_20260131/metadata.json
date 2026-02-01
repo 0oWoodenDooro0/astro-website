@@ -1,8 +1,0 @@
-{
-  "track_id": "interactive_landing_cards_20260131",
-  "type": "feature",
-  "status": "new",
-  "created_at": "2026-01-31T05:21:00Z",
-  "updated_at": "2026-01-31T05:21:00Z",
-  "description": "我要在@src/pages/index.astro 中的projects blog configs 的div 能夠點擊並跳轉到對應的頁面"
-}

@@ -67,7 +67,8 @@ This guide details how to deploy your Astro static site to a Google Cloud Platfo
     Run the container in the background, mapping port 80 of the container to port 80 of the host.
     ```bash
     # Stop/Remove existing container if updating
-    docker stop web || true && docker rm web || true
+    # Stop/Remove existing container if updating (Silence errors if it doesn't exist)
+    docker rm -f web 2>/dev/null || true
     
     # Run new container
     docker run -d --name web -p 80:80 shaggy-star-app
@@ -123,7 +124,8 @@ When you have new changes:
     cd blog
     git pull
     docker build -t shaggy-star-app .
-    docker stop web || true && docker rm web || true
+    # Stop/Remove existing container if updating (Silence errors if it doesn't exist)
+    docker rm -f web 2>/dev/null || true
     docker run -d --name web -p 80:80 shaggy-star-app
     # (Or -p 8080:80 if using Host Nginx Proxy)
     ```
