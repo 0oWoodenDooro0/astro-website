@@ -20,7 +20,8 @@ A comprehensive personal website serving as a professional portfolio, a technica
 2.  **Project Portfolio:**
     -   **Visual Layout:** Grid view with thumbnails and brief descriptions for easy browsing.
     -   **Integration:** Cards feature GitHub links, tech stack tags, and custom icons.
-    -   **Purpose:** To systematically organize and showcase past work.
+    -   **Interaction:** Clickable project cards that lead to dedicated, detailed project pages with full Markdown content.
+    -   **Purpose:** To systematically organize and showcase past work in a detailed and navigable manner.
 
 3.  **Blog & Journal:**
     -   **Content:** A mix of technical articles and personal life updates.
