@@ -16,7 +16,7 @@
     - [ ] Link cards to `/config/[slug]`.
 - [ ] Task: Conductor - User Manual Verification 'Phase 2: Index Page Implementation' (Protocol in workflow.md)
 
-## Phase 3: Detail Page & GitHub Integration
+## Phase 3: Detail Page & GitHub Integration [checkpoint: e605886]
 - [x] Task: Create `src/pages/config/[...slug].astro`. 1e23d87
     - [ ] Implement `getStaticPaths` for the `config` collection.
     - [ ] Setup a basic layout with the "Back to Config" navigation.
