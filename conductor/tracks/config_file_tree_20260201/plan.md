@@ -7,7 +7,7 @@ This plan outlines the steps to migrate configuration data to a local structure 
 - [x] Task: Reorganize `src/content/config/` into a subdirectory-based structure. 4f65eaf
     - Move `nvim.md` to `nvim/index.md`, `zshrc.md` to `zsh/index.md`, etc.
     - Populate each subdirectory with sample configuration files and folders (e.g., `nvim/init.lua`, `nvim/lua/plugins.lua`) to test the recursive tree.
-- [ ] Task: Update the Astro content collection loader.
+- [x] Task: Update the Astro content collection loader. 4f65eaf
     - Modify `src/content/config.ts` to ensure it correctly picks up the `index.md` files as the metadata for each config entry.
 - [ ] Task: Create a build-time utility to generate the file tree and extract content.
     - Implement a script to recursively scan the folder siblings of `index.md`.
