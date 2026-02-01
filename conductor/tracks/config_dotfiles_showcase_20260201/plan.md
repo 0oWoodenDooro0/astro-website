@@ -23,18 +23,10 @@
 - [x] Task: Implement GitHub API Utility. bb366b6
     - [ ] Create `src/lib/github.ts` to fetch repository contents (tree and raw file content).
     - [ ] Handle build-time fetching within `getStaticPaths` or the page script.
-- [ ] Task: Create the File Tree Explorer component.
-    - [ ] Develop a recursive UI component to show folder/file structure.
-    - [ ] Implement client-side state (or simple routing) to switch between files.
-- [ ] Task: Create the Code Viewer component.
-    - [ ] Implement syntax highlighting (using Shiki or similar Astro default).
-    - [ ] Add line numbers and "Copy to Clipboard" functionality.
-    - [ ] Style the viewer with Catppuccin Mocha and JetBrains Mono.
-- [ ] Task: Implement OS-Specific Path Display.
-    - [ ] Create a UI section showing the 3-OS paths (Linux, Mac, Windows) using the metadata.
-- [ ] Task: Implement Download Buttons.
-    - [ ] Link to raw GitHub content for single files.
-    - [ ] Link to GitHub zipball for folders.
+- [x] Task: Create the File Tree Explorer component. e8797d8
+- [x] Task: Create the Code Viewer component. e8797d8
+- [x] Task: Implement OS-Specific Path Display. e8797d8
+- [x] Task: Implement Download Buttons. e8797d8
 - [ ] Task: Conductor - User Manual Verification 'Phase 3: Detail Page & GitHub Integration' (Protocol in workflow.md)
 
 ## Phase 4: Final Polishing & Verification
