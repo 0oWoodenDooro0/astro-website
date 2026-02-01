@@ -1,6 +1,11 @@
 ---
-import { type CollectionEntry, getCollection, render } from 'astro:content';
+import { type CollectionEntry, getCollection } from 'astro:content';
 import Layout from '../../layouts/Layout.astro';
+import { getGitHubContents, getGitHubRawContent } from '../../lib/github';
+import FileTree from '../../components/FileTree.astro';
+import CodeViewer from '../../components/CodeViewer.astro';
+import OSPathDisplay from '../../components/OSPathDisplay.astro';
+import DownloadButton from '../../components/DownloadButton.astro';
 
 export async function getStaticPaths() {
 	const configs = await getCollection('config');
@@ -12,49 +17,88 @@ export async function getStaticPaths() {
 type Props = CollectionEntry<'config'>;
 
 const config = Astro.props;
-const { Content } = await render(config);
+const { github_path, path_linux, path_mac, path_windows } = config.data;
+
+// Fetch GitHub contents at build time
+let githubData: any = null;
+let rawContent: string = '';
+let isDirectory = false;
+
+try {
+  githubData = await getGitHubContents(github_path);
+  isDirectory = Array.isArray(githubData);
+  
+  if (!isDirectory && githubData.download_url) {
+    rawContent = await getGitHubRawContent(githubData.download_url);
+  } else if (isDirectory) {
+    // If it's a directory, maybe show the first file's content or just the tree
+    const firstFile = githubData.find((f: any) => f.type === 'file');
+    if (firstFile && firstFile.download_url) {
+       rawContent = await getGitHubRawContent(firstFile.download_url);
+    }
+  }
+} catch (e) {
+  console.error(e);
+}
+
+const downloadUrl = isDirectory 
+  ? `https://github.com/shaggy-star/dotfiles/zipball/master/${github_path}`
+  : githubData?.download_url || '#';
+
+const currentFilename = isDirectory ? (githubData.find((f: any) => f.type === 'file')?.name || 'index') : githubData?.name || 'config';
 ---
 
 <Layout title={`${config.data.title} | Config`}>
-	<main class="container mx-auto px-4 py-12 max-w-5xl">
-		<header class="mb-8 flex flex-col md:flex-row md:items-end justify-between gap-4">
-			<div>
-				<div class="flex items-center gap-4 mb-4">
-					<a href="/config" class="text-ctp-pink hover:text-ctp-mauve transition-colors font-mono text-sm flex items-center gap-1">
-						<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
-						back
-					</a>
-				</div>
-				<h1 class="text-4xl font-mono font-bold text-ctp-pink mb-2">{config.data.title}</h1>
-				<p class="text-ctp-subtext1">{config.data.description || 'System configuration file'}</p>
+	<main class="container mx-auto px-4 py-12 max-w-6xl">
+		<header class="mb-12">
+			<div class="flex items-center gap-4 mb-6">
+				<a href="/config" class="text-ctp-pink hover:text-ctp-mauve transition-colors font-mono text-sm flex items-center gap-1 group">
+					<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="group-hover:-translate-x-1 transition-transform"><path d="m15 18-6-6 6-6"/></svg>
+					back
+				</a>
 			</div>
-			<div class="flex items-center gap-2 text-[10px] font-mono font-bold uppercase tracking-wider text-ctp-overlay2 border border-ctp-surface1 px-3 py-1 rounded bg-ctp-mantle">
-				<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m18 16 4-4-4-4"/><path d="m6 8-4 4 4 4"/><path d="m14.5 4-5 16"/></svg>
-				{config.data.tech}
+			
+			<div class="flex flex-col md:flex-row md:items-end justify-between gap-6">
+				<div>
+					<h1 class="text-5xl font-mono font-bold text-ctp-pink mb-4">{config.data.title}</h1>
+					<p class="text-ctp-subtext1 text-lg max-w-2xl">{config.data.description}</p>
+				</div>
+				<div class="flex flex-col items-end gap-4">
+					<div class="flex items-center gap-2 text-xs font-mono font-bold uppercase tracking-wider text-ctp-mauve border border-ctp-mauve/30 px-3 py-1.5 rounded-full bg-ctp-mauve/5">
+						<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m18 16 4-4-4-4"/><path d="m6 8-4 4 4 4"/><path d="m14.5 4-5 16"/></svg>
+						{config.data.tech}
+					</div>
+					<DownloadButton 
+						url={downloadUrl} 
+						label={isDirectory ? 'Download .zip' : 'Download File'} 
+						type={isDirectory ? 'zip' : 'file'} 
+					/>
+				</div>
 			</div>
 		</header>
+
+		<section class="mb-12">
+			<h2 class="text-ctp-surface2 font-mono text-sm font-bold uppercase tracking-widest mb-4">Installation Paths</h2>
+			<OSPathDisplay linux={path_linux} mac={path_mac} windows={path_windows} />
+		</section>
 		
-		<div class="border border-ctp-surface0 rounded-xl overflow-hidden bg-ctp-crust shadow-2xl">
-			<div class="bg-ctp-mantle px-4 py-2 border-b border-ctp-surface0 flex items-center gap-2">
-				<div class="flex gap-1.5">
-					<div class="w-3 h-3 rounded-full bg-ctp-red/50"></div>
-					<div class="w-3 h-3 rounded-full bg-ctp-yellow/50"></div>
-					<div class="w-3 h-3 rounded-full bg-ctp-green/50"></div>
-				</div>
-				<span class="text-xs font-mono text-ctp-surface2 ml-2">{config.data.title}</span>
-			</div>
-			<div class="p-6 overflow-x-auto text-sm font-mono prose prose-ctp-mocha max-w-none">
-				<Content />
+		<div class="grid grid-cols-1 lg:grid-cols-4 gap-8">
+			{isDirectory && (
+				<aside class="lg:col-span-1">
+					<h2 class="text-ctp-surface2 font-mono text-sm font-bold uppercase tracking-widest mb-4">Files</h2>
+					<div class="bg-ctp-mantle border border-ctp-surface0 rounded-xl p-4">
+						<FileTree tree={githubData} />
+					</div>
+				</aside>
+			)}
+			
+			<div class={isDirectory ? "lg:col-span-3" : "lg:col-span-4"}>
+				<CodeViewer 
+					code={rawContent} 
+					lang={config.data.tech.toLowerCase()} 
+					filename={currentFilename} 
+				/>
 			</div>
 		</div>
 	</main>
 </Layout>
-
-<style is:global>
-	/* Basic styling for the rendered Markdown/Code */
-	.prose pre {
-		background-color: transparent !important;
-		margin: 0 !important;
-		padding: 0 !important;
-	}
-</style>

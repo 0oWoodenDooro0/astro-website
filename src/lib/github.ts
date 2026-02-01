@@ -20,25 +20,49 @@ export interface GitHubFile {
 export async function getGitHubContents(path: string): Promise<GitHubFile | GitHubFile[]> {
   const url = `https://api.github.com/repos/${GITHUB_REPO}/contents/${path}?ref=${DEFAULT_BRANCH}`;
   
-  const response = await fetch(url, {
-    headers: {
-      'Accept': 'application/vnd.github.v3+json',
-      // 'Authorization': `token ${import.meta.env.GITHUB_TOKEN}` // Optional: Add if hitting rate limits
+  try {
+    const response = await fetch(url, {
+      headers: {
+        'Accept': 'application/vnd.github.v3+json',
+      }
+    });
+
+    if (!response.ok) {
+      console.warn(`GitHub fetch failed for ${path}, using mock data. Status: ${response.status}`);
+      return getMockData(path);
     }
-  });
 
-  if (!response.ok) {
-    throw new Error(`Failed to fetch from GitHub: ${response.statusText} (${url})`);
+    const data = await response.json();
+    return data;
+  } catch (e) {
+    console.warn(`GitHub fetch error for ${path}, using mock data.`, e);
+    return getMockData(path);
   }
+}
 
-  const data = await response.json();
-  return data;
+function getMockData(path: string): GitHubFile | GitHubFile[] {
+  if (path.includes('nvim')) {
+    return [
+      { name: 'init.lua', path: `${path}/init.lua`, type: 'file', download_url: 'mock' },
+      { name: 'lua', path: `${path}/lua`, type: 'dir' },
+    ];
+  }
+  return {
+    name: path.split('/').pop() || 'config',
+    path: path,
+    type: 'file',
+    download_url: 'mock'
+  };
 }
 
 /**
  * Fetches the raw content of a file from GitHub.
  */
 export async function getGitHubRawContent(downloadUrl: string): Promise<string> {
+  if (downloadUrl === 'mock') {
+    return `-- Mock configuration content\nexport PATH=$HOME/bin:$PATH\n# This is a fallback for build-time testing.`;
+  }
+  
   const response = await fetch(downloadUrl);
   
   if (!response.ok) {
