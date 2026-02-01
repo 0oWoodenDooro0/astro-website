@@ -1,6 +1,6 @@
 # Implementation Plan: Config/Dotfiles Showcase Page
 
-## Phase 1: Content Schema & Mock Data
+## Phase 1: Content Schema & Mock Data [checkpoint: 4c6794a]
 - [x] Task: Define `config` collection in `src/content/config.ts`. 1e23d87
     - [ ] Add schema with fields: `title`, `description`, `tech`, `github_path`, `path_linux`, `path_mac`, `path_windows`.
 - [x] Task: Create sample config entries in `src/content/config/`. 7acf926
