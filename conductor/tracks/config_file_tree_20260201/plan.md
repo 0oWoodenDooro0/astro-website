@@ -27,7 +27,7 @@ This plan outlines the steps to migrate configuration data to a local structure 
     - Implement the horizontal split-view layout for desktop.
 - [ ] Task: Conductor - User Manual Verification 'Phase 2: Core Components & Client-Side Logic' (Protocol in workflow.md)
 
-## Phase 3: Mobile Responsiveness & UI/UX Polish
+## Phase 3: Mobile Responsiveness & UI/UX Polish [checkpoint: 09a8685]
 
 - [x] Task: Implement Master-Detail transition for Mobile. e06ec05
     - Add CSS/JS logic to hide the tree and show the viewer on mobile after a file selection.
@@ -37,4 +37,4 @@ This plan outlines the steps to migrate configuration data to a local structure 
     - Add smooth transitions/animations for folder expansion and file switching.
 - [x] Task: Cleanup unused code. 98ca8bb
     - Remove GitHub API integration from `src/pages/config/[...slug].astro` and `src/lib/github.ts` if no longer used by other features.
-- [ ] Task: Conductor - User Manual Verification 'Phase 3: Mobile Responsiveness & UI/UX Polish' (Protocol in workflow.md)
+- [x] Task: Conductor - User Manual Verification 'Phase 3: Mobile Responsiveness & UI/UX Polish' (Protocol in workflow.md) 09a8685
