@@ -26,9 +26,13 @@ const projects = defineCollection({
 const config = defineCollection({
 	loader: glob({ pattern: "**/*.md", base: "./src/content/config" }),
 	schema: z.object({
-		filename: z.string(),
-		language: z.string(),
-		description: z.string().optional(),
+		title: z.string(),
+		description: z.string(),
+		tech: z.string(),
+		github_path: z.string(),
+		path_linux: z.string(),
+		path_mac: z.string(),
+		path_windows: z.string(),
 	}),
 });
 

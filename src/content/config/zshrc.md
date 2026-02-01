@@ -1,7 +1,11 @@
 ---
-filename: '.zshrc'
-language: 'bash'
-description: 'My ZSH configuration file'
+title: 'Zsh Configuration'
+description: 'My main shell configuration with Oh My Zsh and custom aliases.'
+tech: 'Zsh'
+github_path: 'dotfiles/.zshrc'
+path_linux: '~/.zshrc'
+path_mac: '~/.zshrc'
+path_windows: '%USERPROFILE%\.zshrc'
 ---
 
 # .zshrc

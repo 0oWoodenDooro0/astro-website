@@ -15,7 +15,7 @@ const config = Astro.props;
 const { Content } = await render(config);
 ---
 
-<Layout title={`${config.data.filename} | Config`}>
+<Layout title={`${config.data.title} | Config`}>
 	<main class="container mx-auto px-4 py-12 max-w-5xl">
 		<header class="mb-8 flex flex-col md:flex-row md:items-end justify-between gap-4">
 			<div>
@@ -25,12 +25,12 @@ const { Content } = await render(config);
 						back
 					</a>
 				</div>
-				<h1 class="text-4xl font-mono font-bold text-ctp-pink mb-2">{config.data.filename}</h1>
+				<h1 class="text-4xl font-mono font-bold text-ctp-pink mb-2">{config.data.title}</h1>
 				<p class="text-ctp-subtext1">{config.data.description || 'System configuration file'}</p>
 			</div>
 			<div class="flex items-center gap-2 text-[10px] font-mono font-bold uppercase tracking-wider text-ctp-overlay2 border border-ctp-surface1 px-3 py-1 rounded bg-ctp-mantle">
 				<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m18 16 4-4-4-4"/><path d="m6 8-4 4 4 4"/><path d="m14.5 4-5 16"/></svg>
-				{config.data.language}
+				{config.data.tech}
 			</div>
 		</header>
 		
@@ -41,7 +41,7 @@ const { Content } = await render(config);
 					<div class="w-3 h-3 rounded-full bg-ctp-yellow/50"></div>
 					<div class="w-3 h-3 rounded-full bg-ctp-green/50"></div>
 				</div>
-				<span class="text-xs font-mono text-ctp-surface2 ml-2">{config.data.filename}</span>
+				<span class="text-xs font-mono text-ctp-surface2 ml-2">{config.data.title}</span>
 			</div>
 			<div class="p-6 overflow-x-auto text-sm font-mono prose prose-ctp-mocha max-w-none">
 				<Content />
