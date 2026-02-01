@@ -10,9 +10,9 @@
 - [x] Task: Conductor - User Manual Verification 'Phase 1: Project Detail Page Implementation' (Protocol in workflow.md)
 
 ## Phase 2: Index Page Interactions
-- [ ] Task: Update `src/pages/projects/index.astro`.
-    - [ ] Modify the card loop to wrap the card content in an `<a>` tag linking to `/projects/${project.slug}`.
-    - [ ] Ensure existing styles and hover effects are preserved (or applied to the anchor if necessary).
+- [x] Task: Update `src/pages/projects/index.astro`. 0f53818
+    - [x] Modify the card loop to wrap the card content in an `<a>` tag linking to `/projects/${project.slug}`.
+    - [x] Ensure existing styles and hover effects are preserved (or applied to the anchor if necessary).
 - [ ] Task: Conductor - User Manual Verification 'Phase 2: Index Page Interactions' (Protocol in workflow.md)
 
 ## Phase 3: Final Validation
