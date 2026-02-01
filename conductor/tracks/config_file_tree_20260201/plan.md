@@ -9,7 +9,7 @@ This plan outlines the steps to migrate configuration data to a local structure 
     - Populate each subdirectory with sample configuration files and folders (e.g., `nvim/init.lua`, `nvim/lua/plugins.lua`) to test the recursive tree.
 - [x] Task: Update the Astro content collection loader. 4f65eaf
     - Modify `src/content/config.ts` to ensure it correctly picks up the `index.md` files as the metadata for each config entry.
-- [ ] Task: Create a build-time utility to generate the file tree and extract content.
+- [x] Task: Create a build-time utility to generate the file tree and extract content. 3485244
     - Implement a script to recursively scan the folder siblings of `index.md`.
     - Generate a JSON structure containing the file hierarchy and the raw content of each file.
 - [ ] Task: Conductor - User Manual Verification 'Phase 1: Data Migration & Content Structure' (Protocol in workflow.md)
