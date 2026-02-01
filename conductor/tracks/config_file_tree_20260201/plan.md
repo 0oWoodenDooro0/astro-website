@@ -2,7 +2,7 @@
 
 This plan outlines the steps to migrate configuration data to a local structure and implement an interactive, split-view file explorer for the dotfiles section.
 
-## Phase 1: Data Migration & Content Structure
+## Phase 1: Data Migration & Content Structure [checkpoint: f7d5c55]
 
 - [x] Task: Reorganize `src/content/config/` into a subdirectory-based structure. 4f65eaf
     - Move `nvim.md` to `nvim/index.md`, `zshrc.md` to `zsh/index.md`, etc.
@@ -12,7 +12,7 @@ This plan outlines the steps to migrate configuration data to a local structure 
 - [x] Task: Create a build-time utility to generate the file tree and extract content. 3485244
     - Implement a script to recursively scan the folder siblings of `index.md`.
     - Generate a JSON structure containing the file hierarchy and the raw content of each file.
-- [ ] Task: Conductor - User Manual Verification 'Phase 1: Data Migration & Content Structure' (Protocol in workflow.md)
+- [x] Task: Conductor - User Manual Verification 'Phase 1: Data Migration & Content Structure' (Protocol in workflow.md) f7d5c55
 
 ## Phase 2: Core Components & Client-Side Logic
 
