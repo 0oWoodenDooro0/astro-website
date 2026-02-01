@@ -15,8 +15,8 @@
     - [x] Ensure existing styles and hover effects are preserved (or applied to the anchor if necessary).
 - [x] Task: Conductor - User Manual Verification 'Phase 2: Index Page Interactions' (Protocol in workflow.md)
 
-## Phase 3: Final Validation
-- [ ] Task: Run full project verification.
-    - [ ] Execute `pnpm astro check`.
-    - [ ] Execute `pnpm run build`.
-- [ ] Task: Conductor - User Manual Verification 'Phase 3: Final Validation' (Protocol in workflow.md)
+## Phase 3: Final Validation [checkpoint: 72607ad]
+- [x] Task: Run full project verification.
+    - [x] Execute `pnpm astro check`.
+    - [x] Execute `pnpm run build`.
+- [x] Task: Conductor - User Manual Verification 'Phase 3: Final Validation' (Protocol in workflow.md)
