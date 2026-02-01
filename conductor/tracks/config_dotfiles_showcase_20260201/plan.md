@@ -3,7 +3,7 @@
 ## Phase 1: Content Schema & Mock Data
 - [x] Task: Define `config` collection in `src/content/config.ts`. 1e23d87
     - [ ] Add schema with fields: `title`, `description`, `tech`, `github_path`, `path_linux`, `path_mac`, `path_windows`.
-- [ ] Task: Create sample config entries in `src/content/config/`.
+- [x] Task: Create sample config entries in `src/content/config/`. 7acf926
     - [ ] Create `zshrc.md` with mock metadata and paths.
     - [ ] Create `nvim.md` representing a folder structure.
 - [ ] Task: Conductor - User Manual Verification 'Phase 1: Content Schema & Mock Data' (Protocol in workflow.md)
