@@ -17,6 +17,10 @@
 - **Source:** **Markdown / MDX**
   - **Rationale:** Keeps content version-controlled alongside the code. Git-based workflow is ideal for developers.
 
+## External Integrations
+- **Data Source:** **GitHub REST API**
+  - **Rationale:** Used to fetch repository contents (dotfiles) dynamically at build time to ensure the site reflects the latest configurations.
+
 ## Deployment & Infrastructure
 - **Platform:** **Google Cloud (Compute Engine / VM)**
   - **Strategy:** Manual Git workflow (`git pull` -> build/deploy directly on the server).

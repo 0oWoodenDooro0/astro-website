@@ -16,6 +16,9 @@ A comprehensive personal website serving as a professional portfolio, a technica
 1.  **Configuration / Dotfiles Archive:**
     -   A dedicated section for hosting and displaying computer configuration files (config/dotfiles).
     -   Supports syntax highlighting and a "terminal-window" visual style.
+    -   **Dynamic Integration:** Sourced directly from GitHub at build time.
+    -   **Detailed Inspection:** Includes a recursive file tree explorer for folder structures.
+    -   **Utility:** Provides OS-specific installation paths and direct download options for files and archives.
 
 2.  **Project Portfolio:**
     -   **Visual Layout:** Grid view with thumbnails and brief descriptions for easy browsing.
