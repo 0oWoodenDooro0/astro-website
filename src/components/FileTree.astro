@@ -9,11 +9,11 @@ interface Props {
 const { tree, level = 0 } = Astro.props;
 ---
 
-<ul class={`space-y-1 ${level > 0 ? 'ml-4 mt-1 border-l border-ctp-surface1 pl-2' : ''}`}>
+<ul class={`space-y-0.5 ${level > 0 ? 'ml-4 mt-1 border-l border-ctp-surface1 pl-2' : ''}`}>
   {tree.map((node) => (
     <li class="select-none">
       <div 
-        class="file-tree-item flex items-center gap-2 py-1 px-2 rounded hover:bg-ctp-surface0/50 transition-colors group cursor-pointer"
+        class="file-tree-item flex items-center gap-1.5 py-0.5 px-2 rounded hover:bg-ctp-surface0/50 transition-colors group cursor-pointer"
         data-path={node.path}
         data-type={node.type}
         data-name={node.name}
@@ -22,12 +22,13 @@ const { tree, level = 0 } = Astro.props;
       >
         <span class="text-ctp-overlay1 group-hover:text-ctp-pink transition-colors flex-shrink-0">
           {node.type === 'directory' ? (
-            <svg class="folder-icon transition-transform" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 20a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.9a2 2 0 0 1-1.69-.9L9.6 3.9A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2Z"/></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 20a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.9a2 2 0 0 1-1.69-.9L9.6 3.9A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2Z"/></svg>
           ) : (
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M10 9H8"/><path d="M16 13H8"/><path d="M16 17H8"/></svg>
           )}
         </span>
-        <span class="text-ctp-text group-hover:text-ctp-pink transition-colors truncate">
+        
+        <span class="text-ctp-text group-hover:text-ctp-pink transition-colors truncate text-sm">
           {node.name}
         </span>
       </div>
@@ -48,43 +49,32 @@ const { tree, level = 0 } = Astro.props;
     const items = document.querySelectorAll('.file-tree-item');
     
     items.forEach(item => {
-      item.addEventListener('click', (e) => {
-        const type = item.getAttribute('data-type');
-        const path = item.getAttribute('data-path') || '';
-        const name = item.getAttribute('data-name') || '';
-        const content = item.getAttribute('data-content') || '';
-
-        if (type === 'directory') {
-          const contentDiv = item.nextElementSibling;
-          const icon = item.querySelector('.folder-icon');
-          if (contentDiv) {
-            contentDiv.classList.toggle('hidden');
-            if (icon) {
-              icon.classList.toggle('rotate-90');
-            }
-          }
-        } else if (type === 'file') {
-          const highlightedContent = item.getAttribute('data-highlighted') || '';
-          // Update global state
-          $selectedFile.set({ path, name, content, highlightedContent });
-          
-          // Visual feedback for selection
-          document.querySelectorAll('.file-tree-item').forEach(i => i.classList.remove('bg-ctp-surface0', 'text-ctp-pink'));
-          item.classList.add('bg-ctp-surface0', 'text-ctp-pink');
-        }
-      });
+      item.removeEventListener('click', handleItemClick as any);
+      item.addEventListener('click', handleItemClick as any);
     });
   }
 
-  // Run on initial load
-  initFileTree();
+  function handleItemClick(e: MouseEvent) {
+    const item = e.currentTarget as HTMLElement;
+    const type = item.getAttribute('data-type');
+    const path = item.getAttribute('data-path') || '';
+    const name = item.getAttribute('data-name') || '';
+    const content = item.getAttribute('data-content') || '';
 
-  // Run on view transitions if enabled
+    if (type === 'directory') {
+      const contentDiv = item.nextElementSibling;
+      if (contentDiv) {
+        contentDiv.classList.toggle('hidden');
+      }
+    } else if (type === 'file') {
+      const highlightedContent = item.getAttribute('data-highlighted') || '';
+      $selectedFile.set({ path, name, content, highlightedContent });
+      
+      document.querySelectorAll('.file-tree-item').forEach(i => i.classList.remove('bg-ctp-surface0', 'text-ctp-pink'));
+      item.classList.add('bg-ctp-surface0', 'text-ctp-pink');
+    }
+  }
+
+  initFileTree();
   document.addEventListener('astro:after-swap', initFileTree);
 </script>
-
-<style>
-  .rotate-90 {
-    transform: rotate(90deg);
-  }
-</style>
