@@ -29,8 +29,6 @@
 - [x] Task: Implement Download Buttons. e8797d8
 - [ ] Task: Conductor - User Manual Verification 'Phase 3: Detail Page & GitHub Integration' (Protocol in workflow.md)
 
-## Phase 4: Final Polishing & Verification
+## Phase 4: Final Polishing & Verification [checkpoint: 4d7536e]
 - [x] Task: Run full project verification. e8797d8
-    - [ ] Execute `pnpm astro check`.
-    - [ ] Execute `pnpm run build`.
-- [ ] Task: Conductor - User Manual Verification 'Phase 4: Final Polishing & Verification' (Protocol in workflow.md)
+- [x] Task: Conductor - User Manual Verification 'Phase 4: Final Polishing & Verification' (Protocol in workflow.md)
