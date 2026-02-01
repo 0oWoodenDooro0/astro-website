@@ -1,4 +1,4 @@
-# Track project_detail_pages_20260131 Context
+# Track config_file_tree_20260201 Context
 
 - [Specification](./spec.md)
 - [Implementation Plan](./plan.md)
