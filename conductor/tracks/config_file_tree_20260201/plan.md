@@ -16,13 +16,13 @@ This plan outlines the steps to migrate configuration data to a local structure 
 
 ## Phase 2: Core Components & Client-Side Logic
 
-- [~] Task: Implement the interactive File Tree component.
+- [x] Task: Implement the interactive File Tree component. 33ccb2b
     - Refactor `src/components/FileTree.astro` (or create a new client-side component) to handle click events.
     - Add state management (e.g., using a Nanostore or standard React state) to track the "currently selected file".
-- [ ] Task: Refactor the Code Viewer for dynamic updates.
+- [x] Task: Refactor the Code Viewer for dynamic updates. 33ccb2b
     - Update `src/components/CodeViewer.astro` to receive code content as a prop or from a shared state.
     - Ensure syntax highlighting correctly updates when a new file is selected.
-- [ ] Task: Assemble the Split-View Layout in `src/pages/config/[...slug].astro`.
+- [x] Task: Assemble the Split-View Layout in `src/pages/config/[...slug].astro`. 33ccb2b
     - Replace the build-time GitHub fetching logic with the local JSON data generated in Phase 1.
     - Implement the horizontal split-view layout for desktop.
 - [ ] Task: Conductor - User Manual Verification 'Phase 2: Core Components & Client-Side Logic' (Protocol in workflow.md)
