@@ -8,7 +8,7 @@
     - [ ] Create `nvim.md` representing a folder structure.
 - [ ] Task: Conductor - User Manual Verification 'Phase 1: Content Schema & Mock Data' (Protocol in workflow.md)
 
-## Phase 2: Index Page Implementation
+## Phase 2: Index Page Implementation [checkpoint: 680d179]
 - [x] Task: Create `src/pages/config/index.astro`. 1e23d87
     - [ ] Fetch all entries from the `config` collection.
     - [ ] Implement a grid/list layout using Catppuccin themed cards.
