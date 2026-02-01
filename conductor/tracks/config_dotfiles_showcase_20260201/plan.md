@@ -20,7 +20,7 @@
 - [x] Task: Create `src/pages/config/[...slug].astro`. 1e23d87
     - [ ] Implement `getStaticPaths` for the `config` collection.
     - [ ] Setup a basic layout with the "Back to Config" navigation.
-- [ ] Task: Implement GitHub API Utility.
+- [x] Task: Implement GitHub API Utility. bb366b6
     - [ ] Create `src/lib/github.ts` to fetch repository contents (tree and raw file content).
     - [ ] Handle build-time fetching within `getStaticPaths` or the page script.
 - [ ] Task: Create the File Tree Explorer component.
