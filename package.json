@@ -13,6 +13,8 @@
     "@tailwindcss/typography": "^0.5.19",
     "@tailwindcss/vite": "^4.1.18",
     "astro": "^5.17.1",
+    "nanostores": "^1.1.0",
+    "shiki": "^3.22.0",
     "tailwindcss": "^4.1.18",
     "typescript": "^5.9.3"
   },

@@ -1,11 +1,11 @@
 ---
 import { type CollectionEntry, getCollection } from 'astro:content';
 import Layout from '../../layouts/Layout.astro';
-import { getGitHubContents, getGitHubRawContent } from '../../lib/github';
 import FileTree from '../../components/FileTree.astro';
 import CodeViewer from '../../components/CodeViewer.astro';
 import OSPathDisplay from '../../components/OSPathDisplay.astro';
 import DownloadButton from '../../components/DownloadButton.astro';
+import { getConfigFileTree, type FileNode } from '../../lib/file-tree';
 
 export async function getStaticPaths() {
 	const configs = await getCollection('config');
@@ -19,33 +19,24 @@ type Props = CollectionEntry<'config'>;
 const config = Astro.props;
 const { github_path, path_linux, path_mac, path_windows } = config.data;
 
-// Fetch GitHub contents at build time
-let githubData: any = null;
-let rawContent: string = '';
-let isDirectory = false;
+// Fetch local file tree
+const fileTree = await getConfigFileTree(config.id);
 
-try {
-  githubData = await getGitHubContents(github_path);
-  isDirectory = Array.isArray(githubData);
-  
-  if (!isDirectory && githubData.download_url) {
-    rawContent = await getGitHubRawContent(githubData.download_url);
-  } else if (isDirectory) {
-    // If it's a directory, maybe show the first file's content or just the tree
-    const firstFile = githubData.find((f: any) => f.type === 'file');
-    if (firstFile && firstFile.download_url) {
-       rawContent = await getGitHubRawContent(firstFile.download_url);
+// Find first file to display initially
+function findFirstFile(nodes: FileNode[]): FileNode | null {
+  for (const node of nodes) {
+    if (node.type === 'file') return node;
+    if (node.children) {
+      const found = findFirstFile(node.children);
+      if (found) return found;
     }
   }
-} catch (e) {
-  console.error(e);
+  return null;
 }
 
-const downloadUrl = isDirectory 
-  ? `https://github.com/shaggy-star/dotfiles/zipball/master/${github_path}`
-  : githubData?.download_url || '#';
+const firstFile = findFirstFile(fileTree);
 
-const currentFilename = isDirectory ? (githubData.find((f: any) => f.type === 'file')?.name || 'index') : githubData?.name || 'config';
+const downloadUrl = `https://github.com/shaggy-star/dotfiles/zipball/master/${github_path}`;
 ---
 
 <Layout title={`${config.data.title} | Config`}>
@@ -70,8 +61,8 @@ const currentFilename = isDirectory ? (githubData.find((f: any) => f.type === 'f
 					</div>
 					<DownloadButton 
 						url={downloadUrl} 
-						label={isDirectory ? 'Download .zip' : 'Download File'} 
-						type={isDirectory ? 'zip' : 'file'} 
+						label="Download Config" 
+						type="zip" 
 					/>
 				</div>
 			</div>
@@ -82,21 +73,19 @@ const currentFilename = isDirectory ? (githubData.find((f: any) => f.type === 'f
 			<OSPathDisplay linux={path_linux} mac={path_mac} windows={path_windows} />
 		</section>
 		
-		<div class="grid grid-cols-1 lg:grid-cols-4 gap-8">
-			{isDirectory && (
-				<aside class="lg:col-span-1">
-					<h2 class="text-ctp-surface2 font-mono text-sm font-bold uppercase tracking-widest mb-4">Files</h2>
-					<div class="bg-ctp-mantle border border-ctp-surface0 rounded-xl p-4">
-						<FileTree tree={githubData} />
-					</div>
-				</aside>
-			)}
+		<div class="grid grid-cols-1 lg:grid-cols-4 gap-8 h-[600px]">
+			<aside class="lg:col-span-1 h-full flex flex-col min-h-0">
+				<h2 class="text-ctp-surface2 font-mono text-sm font-bold uppercase tracking-widest mb-4 flex-shrink-0">Files</h2>
+				<div class="bg-ctp-mantle border border-ctp-surface0 rounded-xl p-4 overflow-auto flex-grow">
+					<FileTree tree={fileTree} />
+				</div>
+			</aside>
 			
-			<div class={isDirectory ? "lg:col-span-3" : "lg:col-span-4"}>
+			<div class="lg:col-span-3 h-full min-h-0">
 				<CodeViewer 
-					code={rawContent} 
-					lang={config.data.tech.toLowerCase()} 
-					filename={currentFilename} 
+					initialCode={firstFile?.content} 
+					initialHighlighted={firstFile?.highlightedContent}
+					initialFilename={firstFile?.name} 
 				/>
 			</div>
 		</div>

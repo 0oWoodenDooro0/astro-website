@@ -16,7 +16,7 @@ This plan outlines the steps to migrate configuration data to a local structure 
 
 ## Phase 2: Core Components & Client-Side Logic
 
-- [ ] Task: Implement the interactive File Tree component.
+- [~] Task: Implement the interactive File Tree component.
     - Refactor `src/components/FileTree.astro` (or create a new client-side component) to handle click events.
     - Add state management (e.g., using a Nanostore or standard React state) to track the "currently selected file".
 - [ ] Task: Refactor the Code Viewer for dynamic updates.
